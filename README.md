@@ -1,74 +1,109 @@
-CleanVision using DIV2K : Deep Learning based Real-Time Denoising, Inpainting, and Restoration of Noisy Images (Computer Vision)
-🧠 Project Overview
-CleanVision is a deep learning-powered computer vision project designed to enhance, denoise, and restore degraded images in real time. Leveraging the DIV2K dataset, this project focuses on solving three core image restoration challenges: *denoising, **inpainting, and *super-resolution/restoration using modern neural network architectures.
+# 🧼 CleanVision using DIV2K  
+**Deep Learning-Based Real-Time Denoising, Inpainting & Restoration of Noisy Images (Computer Vision)**
 
-🌟 Key Features
-🧹 Real-time image denoising using CNNs or GAN-based models
-🖼️ Intelligent inpainting of missing or corrupted image regions
-🎨 Restoration and super-resolution to enhance visual quality
-📦 Modular and extensible architecture for training and inference
-📊 Performance evaluation using PSNR, SSIM, and visual comparisons
-🧪 Support for custom inputs and real-world test cases
-📂 Dataset: DIV2K
-We use the DIV2K (DIVerse 2K Resolution) dataset, a high-quality dataset for image restoration tasks. It contains 2K resolution images with various degradations, making it ideal for:
+---
 
-Denoising tasks
-Super-resolution
-Compression artifact removal
-Inpainting (custom masks applied)
-Source: https://data.vision.ee.ethz.ch/cvl/DIV2K/
+## 🧠 Project Overview
 
-🏗️ Model Architectures
-Denoising: DnCNN, UNet, or Residual Denoisers
-Inpainting: Partial Convolutional Networks / Masked Autoencoders
-Restoration: SRCNN / ESRGAN for super-resolution
-Loss Functions: MSE, Perceptual Loss, SSIM Loss
-Optimizers: Adam, AdamW with learning rate schedulers
-Optionally supports PyTorch Lightning or Keras for training workflows.
+**CleanVision** is a deep learning-powered computer vision project designed to enhance, denoise, and restore degraded images in real time.  
+Leveraging the **DIV2K** dataset, it addresses three core image restoration challenges:
 
-🧪 Workflow
-Data Preprocessing
-Load and augment DIV2K images
-Apply synthetic noise, blur, or masking for training
-Model Training
-Train denoising, inpainting, and restoration models separately
-Use early stopping, checkpointing, and logging (TensorBoard/W&B)
-Inference & Visualization
-Pass noisy/damaged images
-Visualize original, corrupted, and restored results side by side
-🖼️ Example Use Case
-Input (Noisy)	Cleaned Output
-noisy	clean
-🔧 Installation & Setup
-Clone the repo bash git clone https://github.com/imtapojit/CleanVision_using_DIV2K cd CleanVision-DIV2K
+- ✨ Denoising
+- 🧩 Inpainting
+- 📈 Super-Resolution / Restoration
 
-Install dependencies bash pip install -r requirements.txt
+---
 
-Download and extract DIV2K Place it in the data/ directory or update the path in the config.
+## 🌟 Key Features
 
-Train a model bash python train.py --task denoising --model dncnn
+- 🧹 Real-time **image denoising** using CNNs or GAN-based models  
+- 🖼️ Intelligent **inpainting** of missing or corrupted image regions  
+- 🎨 Image **restoration and super-resolution** to enhance visual quality  
+- 🧱 Modular and extensible architecture for training & inference  
+- 📊 Evaluation with **PSNR**, **SSIM**, and visual comparisons  
+- 🧪 Custom input support for **real-world test cases**
 
-Run inference bash python infer.py --input sample_images/noisy.png --task denoising
+---
+
+## 📂 Dataset: DIV2K
+
+The project uses the **DIVerse 2K Resolution (DIV2K)** dataset, a high-quality dataset for image restoration tasks.  
+It contains 2K resolution images with various degradations, making it ideal for:
+
+- Denoising  
+- Super-resolution  
+- Compression artifact removal  
+- Inpainting (with custom masks)  
+
+🔗 [DIV2K Dataset – CVL ETH Zurich](https://data.vision.ee.ethz.ch/cvl/DIV2K/)
+
+---
+
+## 🏗️ Model Architectures
+
+| Task          | Model Options                               |
+|---------------|----------------------------------------------|
+| Denoising     | DnCNN, UNet, Residual Denoisers              |
+| Inpainting    | Partial Convolutions, Masked Autoencoders    |
+| Restoration   | SRCNN, ESRGAN                                |
+
+- **Loss Functions**: MSE, Perceptual Loss, SSIM Loss  
+- **Optimizers**: Adam, AdamW + learning rate schedulers  
+- Supports: **PyTorch**, **TensorFlow**, *(optionally with PyTorch Lightning or Keras)*
+
+---
+
+## 🔬 Workflow
+
+### 1️⃣ Data Preprocessing
+- Load & augment DIV2K images
+- Apply synthetic noise, blur, or masking
+
+### 2️⃣ Model Training
+- Train models for denoising, inpainting, and restoration
+- Use early stopping, checkpointing, logging via TensorBoard / W&B
+
+### 3️⃣ Inference & Visualization
+- Pass noisy or damaged images through trained models
+- Visualize side-by-side:
+  - Original  
+  - Corrupted  
+  - Restored
+
+---
+
+## 🖼️ Example Use Case
+
+| Input (Noisy) | Restored Output |
+|---------------|------------------|
+| `noisy.png`   | `clean.png`      |
+
+---
 
 📊 Evaluation Metrics
-PSNR (Peak Signal-to-Noise Ratio)
-SSIM (Structural Similarity Index)
-LPIPS (Used for perceptual quality)
-📌 Folder Structure
-CleanVision-DIV2K/ ├── data/ # DIV2K and sample noisy images ├── models/ # Model architectures ├── outputs/ # Saved models, results ├── scripts/ # Utilities, evaluation ├── train.py # Training script ├── infer.py # Inference script ├── config.yaml # Configurations └── README.md # Documentation
+🧮 PSNR - Peak Signal-to-Noise Ratio
 
-🚀 Future Work
-Add support for real-time webcam/image feed restoration
-Integrate transformer-based vision models (e.g., ViT, Masked Autoencoders)
-Train on additional datasets (e.g., BSD500, ImageNet subsets)
-Add noise/adversarial attack robustness evaluation
+🧮 SSIM - Structural Similarity Index
+
+🧭 Roadmap / Future Work
+🔴 Real-time restoration from webcam/image feed
+
+🟠 Vision Transformer support (ViT, MAE, etc.)
+
+🟡 Train on additional datasets (e.g., BSD500, ImageNet)
+
+🟢 Evaluate robustness to adversarial noise
+
 🤝 Contributions
-Contributions are welcome! Feel free to fork the repository, open issues, or submit pull requests for improvements.
+Contributions are welcome!
+Feel free to fork, open issues, or submit pull requests for improvements.
 
 📄 License
 This project is licensed under the MIT License.
 
 🙏 Acknowledgements
 DIV2K Dataset by CVL ETH Zurich
-PyTorch / TensorFlow open-source libraries
-Research inspiration from ESRGAN, DnCNN, and NVIDIA’s inpainting models
+
+Open-source tools: PyTorch, TensorFlow, OpenCV
+
+Research inspiration from: ESRGAN, DnCNN, and NVIDIA Inpainting Models
