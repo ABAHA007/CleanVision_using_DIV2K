@@ -8,8 +8,8 @@
 **CleanVision** is a deep learning-powered computer vision project designed to enhance, denoise, and restore degraded images in real time.  
 Leveraging the **DIV2K** dataset, it addresses three core image restoration challenges:
 
-- ✨ Denoising
-- 🧩 Inpainting
+- ✨ Denoising  
+- 🧩 Inpainting  
 - 📈 Super-Resolution / Restoration
 
 ---
@@ -80,30 +80,86 @@ It contains 2K resolution images with various degradations, making it ideal for:
 
 ---
 
-📊 Evaluation Metrics
-🧮 PSNR - Peak Signal-to-Noise Ratio
+## ⚙️ Installation & Setup
 
-🧮 SSIM - Structural Similarity Index
+```bash
+# Clone the repository
+git clone https://github.com/your-username/CleanVision-DIV2K
+cd CleanVision-DIV2K
 
-🧭 Roadmap / Future Work
-🔴 Real-time restoration from webcam/image feed
+# Install required packages
+pip install -r requirements.txt
 
-🟠 Vision Transformer support (ViT, MAE, etc.)
+# Download & place DIV2K dataset
+# Put it in the `data/` directory or update the config path
+```
 
-🟡 Train on additional datasets (e.g., BSD500, ImageNet)
+---
 
-🟢 Evaluate robustness to adversarial noise
+## 🚀 Train & Run Inference
 
-🤝 Contributions
-Contributions are welcome!
+```bash
+# To train a model (example: denoising with DnCNN)
+python train.py --task denoising --model dncnn
+
+# To run inference on a noisy image
+python infer.py --input sample_images/noisy.png --task denoising
+```
+
+---
+
+## 📊 Evaluation Metrics
+
+- 🧮 **PSNR** - Peak Signal-to-Noise Ratio  
+- 🧮 **SSIM** - Structural Similarity Index  
+- 👁️ **LPIPS** - Learned Perceptual Image Patch Similarity *(optional)*
+
+---
+
+## 📁 Folder Structure
+
+```
+CleanVision-DIV2K/
+├── data/           # DIV2K and sample noisy images
+├── models/         # Model architectures
+├── outputs/        # Saved results and checkpoints
+├── scripts/        # Utilities and evaluation tools
+├── train.py        # Training script
+├── infer.py        # Inference script
+├── config.yaml     # Model and data configuration
+└── README.md       # Project documentation
+```
+
+---
+
+## 🧭 Roadmap / Future Work
+
+- 🔴 Real-time restoration from webcam/image feed  
+- 🟠 Vision Transformer support (ViT, MAE, etc.)  
+- 🟡 Train on additional datasets (BSD500, ImageNet subsets)  
+- 🟢 Evaluate robustness to adversarial noise
+
+---
+
+## 🤝 Contributions
+
+Contributions are welcome!  
 Feel free to fork, open issues, or submit pull requests for improvements.
 
-📄 License
-This project is licensed under the MIT License.
+---
 
-🙏 Acknowledgements
-DIV2K Dataset by CVL ETH Zurich
+## 📄 License
 
-Open-source tools: PyTorch, TensorFlow, OpenCV
+This project is licensed under the **MIT License**.
 
-Research inspiration from: ESRGAN, DnCNN, and NVIDIA Inpainting Models
+---
+
+## 🙏 Acknowledgements
+
+- [DIV2K Dataset](https://data.vision.ee.ethz.ch/cvl/DIV2K/) by **CVL ETH Zurich**  
+- Open-source tools: **PyTorch**, **TensorFlow**, **OpenCV**  
+- Research inspiration from: **ESRGAN**, **DnCNN**, and **NVIDIA Inpainting Models**
+
+---
+
+> 💡 *Developed with ❤️ by Abaha Mondal*
